@@ -35,8 +35,7 @@
       update_time)
     values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{email,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{question,jdbcType=VARCHAR}, 
-      #{answer,jdbcType=VARCHAR}, #{role,jdbcType=INTEGER}, now(),
-      now())
+      #{answer,jdbcType=VARCHAR}, #{role,jdbcType=INTEGER}, now(),now())
   </insert>
   <insert id="insertSelective" parameterType="com.mall.pojo.User" >
     insert into mmall_user
@@ -151,4 +150,64 @@
       update_time = now()
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="checkUserame" resultType="int" parameterType="string">
+    SELECT COUNT(1) FROM mmall_user
+    WHERE username = #{userName}
+  </select>
+
+  <select id="checkEmail" resultType="int" parameterType="string">
+    SELECT COUNT(1) FROM mmall_user
+    WHERE email = #{email}
+  </select>
+
+  <select id="selectLogin" resultMap="BaseResultMap" parameterType="map">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM mmall_user
+    WHERE username = #{username}
+    AND password = #{password}
+
+  </select>
+
+  <select id="selectQuestionByUsername" resultType="string" parameterType="string">
+    SELECT qusetion
+    FROM mmall_user
+    WHERE username = #{username}
+
+  </select>
+
+  <select id="checkAnswer" resultType="int" parameterType="map">
+    SELECT COUNT (1)
+    FROM mmall_user
+    WHERE username = #{username}
+    AND question = #{question}
+    AND answer = #{answer}
+
+  </select>
+
+  <update id="updatePasswordByUsername" parameterType="map">
+    UPDATE mmall_user
+    SET password = #{passwordNew},update_time = now()
+    WHERE username = #{username}
+
+  </update>
+
+  <select id="checkPassword" resultType="int" parameterType="map">
+    SELECT
+    COUNT (1)
+    FROM mmall_user
+    WHERE password = #{password}
+    AND id = #{userId}
+  </select>
+
+  <select id="checkEmailByUserId" resultType="int" parameterType="map">
+    SELECT
+    COUNT (1)
+    FROM mmall_user
+    WHERE email = #{email}
+    AND id != #{userId}
+  </select>
+
+
 </mapper>
