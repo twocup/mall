@@ -30,7 +30,7 @@ public class UserController {
      * @param session   session
      * @return          ServerResponse
      */
-    @RequestMapping(value = "login.do",method = RequestMethod.GET)
+    @RequestMapping(value = "login.do",method = RequestMethod.POST)
     @ResponseBody
     public ServerResponse<User> login(String username, String password, HttpSession session){
         ServerResponse<User> response = iUserService.login(username, password);
@@ -121,10 +121,10 @@ public class UserController {
      * @param forgetToken   token
      * @return              ServerResponse
      */
-    @RequestMapping(value = "forget_rest_password.do",method = RequestMethod.POST)
+    @RequestMapping(value = "forget_reset_password.do",method = RequestMethod.POST)
     @ResponseBody
-    public ServerResponse<String> forgetRestPassword(String username,String passwordNew,String forgetToken){
-        return iUserService.forgetRestPassword(username, passwordNew, forgetToken);
+    public ServerResponse<String> forgetResetPassword(String username,String passwordNew,String forgetToken){
+        return iUserService.forgetResetPassword(username, passwordNew, forgetToken);
     }
 
     /**
@@ -134,7 +134,7 @@ public class UserController {
      * @param passwordNew   新密码
      * @return              ServerResponse
      */
-    @RequestMapping(value = "rest_password.do",method = RequestMethod.POST)
+    @RequestMapping(value = "reset_password.do",method = RequestMethod.POST)
     @ResponseBody
     public ServerResponse<String> resetPassword(HttpSession session,String passwordOld,String passwordNew){
         User user = (User) session.getAttribute(Const.CURRENT_USER);
@@ -157,7 +157,7 @@ public class UserController {
             return ServerResponse.createByErrorMessage("用户未登录");
         }
         user.setId(currentUser.getId());
-        user.setUsername(currentUser.getUsername());
+        user.setUpdateTime(currentUser.getUpdateTime());
         ServerResponse<User> response = iUserService.updateInformation(user);
         if (response.isSuccess()) {
             response.getData().setUsername(currentUser.getUsername());

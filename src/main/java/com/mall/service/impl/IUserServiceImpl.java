@@ -108,7 +108,7 @@ public class IUserServiceImpl implements IUserService {
     }
 
     @Override
-    public ServerResponse<String> forgetRestPassword(String username, String passwordNew, String forgetToken) {
+    public ServerResponse<String> forgetResetPassword(String username, String passwordNew, String forgetToken) {
         if (StringUtils.isBlank(forgetToken)) {
             return ServerResponse.createByErrorMessage("参数错误：token需要传递");
         }
@@ -162,7 +162,7 @@ public class IUserServiceImpl implements IUserService {
         updateUser.setPhone(user.getPhone());
         updateUser.setQuestion(user.getQuestion());
         updateUser.setAnswer(user.getAnswer());
-
+        updateUser.setUpdateTime(user.getUpdateTime());
         int updateCount = userMapper.updateByPrimaryKeySelective(updateUser);
         if (updateCount > 0) {
             return ServerResponse.createBySuccess("更新个人信息成功", updateUser);
@@ -173,7 +173,7 @@ public class IUserServiceImpl implements IUserService {
     @Override
     public ServerResponse<User> getInformation(Integer userId) {
         User user = userMapper.selectByPrimaryKey(userId);
-        if (user != null) {
+        if (user == null) {
             return ServerResponse.createByErrorMessage("找不到当前用户");
         }
         user.setPassword(StringUtils.EMPTY);
