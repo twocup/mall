@@ -171,14 +171,14 @@
   </select>
 
   <select id="selectQuestionByUsername" resultType="string" parameterType="string">
-    SELECT qusetion
+    SELECT question
     FROM mmall_user
     WHERE username = #{username}
 
   </select>
 
   <select id="checkAnswer" resultType="int" parameterType="map">
-    SELECT COUNT (1)
+    SELECT COUNT(1)
     FROM mmall_user
     WHERE username = #{username}
     AND question = #{question}
@@ -194,16 +194,14 @@
   </update>
 
   <select id="checkPassword" resultType="int" parameterType="map">
-    SELECT
-    COUNT (1)
+    SELECT COUNT(1)
     FROM mmall_user
     WHERE password = #{password}
     AND id = #{userId}
   </select>
 
   <select id="checkEmailByUserId" resultType="int" parameterType="map">
-    SELECT
-    COUNT (1)
+    SELECT COUNT(1)
     FROM mmall_user
     WHERE email = #{email}
     AND id != #{userId}

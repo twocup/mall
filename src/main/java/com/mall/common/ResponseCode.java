@@ -1,7 +1,8 @@
 package com.mall.common;
 
 /**
- * @author dhf07
+ * 公共response返回代码
+ * @author dhf
  */
 public enum ResponseCode {
     SUCCESS(0, "SUCCESS"),

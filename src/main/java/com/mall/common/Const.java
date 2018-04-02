@@ -1,7 +1,8 @@
 package com.mall.common;
 
 /**
- * @author dhf07
+ * 公共常量
+ * @author dhf
  */
 public class Const {
 

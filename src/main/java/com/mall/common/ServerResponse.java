@@ -6,7 +6,8 @@ import org.codehaus.jackson.map.annotate.JsonSerialize;
 import java.io.Serializable;
 
 /**
- * @author dhf07
+ * 公共serverResponse类
+ * @author dhf
  */
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
 //保证序列化json时，如果是null的对象，key也会消失

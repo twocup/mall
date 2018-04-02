@@ -4,7 +4,8 @@ import com.mall.common.ServerResponse;
 import com.mall.pojo.User;
 
 /**
- * @author dhf07
+ * 用户模块service接口
+ * @author dhf
  */
 public interface IUserService {
 
@@ -18,7 +19,7 @@ public interface IUserService {
 
     ServerResponse<String> checkAnswer(String username, String question, String answer);
 
-    ServerResponse<String> forgetRestPassword(String username, String passwordNew, String forgetToken);
+    ServerResponse<String> forgetResetPassword(String username, String passwordNew, String forgetToken);
 
     ServerResponse<String> resetPassword(String passwordOld, String passwordNew, User user);
 
