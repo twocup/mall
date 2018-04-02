@@ -14,7 +14,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpSession;
 
 /**
- * @author dhf07
+ * 前台用户controller层
+ * @author dhf
  */
 @Controller
 @RequestMapping("/user/")

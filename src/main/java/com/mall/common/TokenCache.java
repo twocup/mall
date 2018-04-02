@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * 本地缓存
- * @author dhf07
+ * @author dhf
  */
 public class TokenCache {
     private static Logger logger = LoggerFactory.getLogger(TokenCache.class);

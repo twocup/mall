@@ -4,7 +4,8 @@ import com.mall.common.ServerResponse;
 import com.mall.pojo.User;
 
 /**
- * @author dhf07
+ * 用户模块service接口
+ * @author dhf
  */
 public interface IUserService {
 

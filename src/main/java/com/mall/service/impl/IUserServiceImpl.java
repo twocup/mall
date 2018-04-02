@@ -14,7 +14,8 @@ import org.springframework.stereotype.Service;
 import java.util.UUID;
 
 /**
- *@author dhf07
+ * 用户模块service实现
+ *@author dhf
  */
 @Service("iUserService")
 public class IUserServiceImpl implements IUserService {
