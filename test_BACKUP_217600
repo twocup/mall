@@ -8,9 +8,10 @@ aaaaa
 
 bbb
 
+<<<<<<< HEAD
 branch hotfix
-
+=======
 test branch
 
 insert a new words for test branch`
-
+>>>>>>> test
