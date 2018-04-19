@@ -1,5 +1,6 @@
 #mall
 #测试pull request
+<<<<<<< HEAD
 #dddd
 
 
@@ -7,3 +8,6 @@
 #aaaa
 
 #bbb
+=======
+#呵呵哒
+>>>>>>> refs/remotes/origin/master
